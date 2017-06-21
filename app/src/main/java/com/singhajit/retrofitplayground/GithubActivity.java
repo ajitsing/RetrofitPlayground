@@ -3,6 +3,7 @@ package com.singhajit.retrofitplayground;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.TextView;
 
 import com.singhajit.retrofitplayground.github.GithubApiClient;
@@ -13,6 +14,9 @@ import java.util.List;
 import retrofit2.Retrofit;
 
 public class GithubActivity extends AppCompatActivity implements GithubView {
+
+  private GithubPresenter presenter;
+
   @Override
   protected void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -20,7 +24,7 @@ public class GithubActivity extends AppCompatActivity implements GithubView {
     Retrofit githubService = RetrofitServiceFactory.getGithubService(this);
     GithubApiClient githubApiClient = githubService.create(GithubApiClient.class);
 
-    GithubPresenter presenter = new GithubPresenter(githubApiClient, this);
+    presenter = new GithubPresenter(githubApiClient, this);
     presenter.renderRepos("ajitsing");
   }
 
@@ -32,5 +36,9 @@ public class GithubActivity extends AppCompatActivity implements GithubView {
     }
     TextView reposTextView = (TextView) findViewById(R.id.repos);
     reposTextView.setText(allRepos);
+  }
+
+  public void batchRequests(View view) {
+    presenter.renderRepos("ajitsing", "JakeWharton");
   }
 }
