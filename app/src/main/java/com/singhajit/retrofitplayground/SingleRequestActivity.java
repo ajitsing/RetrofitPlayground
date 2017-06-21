@@ -1,8 +1,10 @@
 package com.singhajit.retrofitplayground;
 
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
@@ -28,6 +30,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class SingleRequestActivity extends AppCompatActivity {
 
   private GithubApiClient githubApiClient;
+  private ProgressBar progressBar;
+  private CountDownTimer timerTask;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +56,20 @@ public class SingleRequestActivity extends AppCompatActivity {
         .build();
 
     githubApiClient = githubRetrofit.create(GithubApiClient.class);
+    progressBar = (ProgressBar) findViewById(R.id.progressBar);
+    progressBar.setProgress(0);
+    timerTask = new CountDownTimer(10000, 1000) {
+      @Override
+      public void onTick(long l) {
+        progressBar.incrementProgressBy(10);
+      }
+
+      @Override
+      public void onFinish() {
+        progressBar.setProgress(100);
+      }
+    };
+
     makeRequest();
   }
 
@@ -80,6 +98,9 @@ public class SingleRequestActivity extends AppCompatActivity {
 
           @Override
           public void onComplete() {
+            if (progressBar.getProgress() == 0) {
+              timerTask.start();
+            }
           }
         });
   }
@@ -91,5 +112,9 @@ public class SingleRequestActivity extends AppCompatActivity {
     }
     TextView reposTextView = (TextView) findViewById(R.id.repos);
     reposTextView.setText(allRepos);
+  }
+
+  public void resetTimer(View view) {
+    progressBar.setProgress(0);
   }
 }
