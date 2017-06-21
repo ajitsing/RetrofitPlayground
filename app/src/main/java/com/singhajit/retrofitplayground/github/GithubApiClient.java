@@ -11,4 +11,7 @@ public interface GithubApiClient {
   @GET("users/{user}/repos")
   @Headers("Cache-Control: max-age=10")
   Observable<List<Repository>> repos(@Path("user") String user);
+
+  @GET("users/{user}/orgs")
+  Observable<List<Organization>> organizations(@Path("user") String user);
 }

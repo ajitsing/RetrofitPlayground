@@ -215,4 +215,8 @@ public class Repository {
   public String getName() {
     return name;
   }
+
+  public Owner getOwner() {
+    return owner;
+  }
 }

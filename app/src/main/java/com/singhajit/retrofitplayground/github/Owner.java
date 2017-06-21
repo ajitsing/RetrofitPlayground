@@ -55,4 +55,8 @@ public class Owner {
   @SerializedName("site_admin")
   @Expose
   public Boolean siteAdmin;
+
+  public String getLogin() {
+    return login;
+  }
 }

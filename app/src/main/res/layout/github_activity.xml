@@ -14,14 +14,40 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin">
 
-    <Button
-      android:text="Batch Requests"
-      android:onClick="batchRequests"
+    <LinearLayout
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content">
+
+      <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="batchRequests"
+        android:text="Multi Same Requests"/>
+
+      <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="multiDiffRequests"
+        android:text="Multi Diff Requests"/>
+    </LinearLayout>
+
+    <TextView
+      android:id="@+id/repos"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"/>
 
     <TextView
-      android:id="@+id/repos"
+      android:id="@+id/user"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"/>
+
+    <TextView
+      android:id="@+id/user_repos"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"/>
+
+    <TextView
+      android:id="@+id/user_orgs"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"/>
   </LinearLayout>
