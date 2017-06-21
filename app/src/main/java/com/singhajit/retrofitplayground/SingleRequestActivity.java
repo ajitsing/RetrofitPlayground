@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+import com.singhajit.retrofitplayground.github.CustomInterceptor;
 import com.singhajit.retrofitplayground.github.GithubApiClient;
 import com.singhajit.retrofitplayground.github.Repository;
 
@@ -40,6 +41,7 @@ public class SingleRequestActivity extends AppCompatActivity {
     OkHttpClient client = new OkHttpClient.Builder()
         .cache(cache)
         .addInterceptor(interceptor)
+        .addNetworkInterceptor(new CustomInterceptor())
         .build();
 
     Retrofit githubRetrofit = new Retrofit.Builder()
