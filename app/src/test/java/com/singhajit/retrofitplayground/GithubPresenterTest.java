@@ -47,7 +47,7 @@ public class GithubPresenterTest {
 
     when(githubApiClient.repos(user)).thenReturn(reposObservable);
 
-    presenter.fetchRepos(user);
+    presenter.renderRepos(user);
 
     verify(view).render(repos);
   }

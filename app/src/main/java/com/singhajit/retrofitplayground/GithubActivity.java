@@ -21,7 +21,7 @@ public class GithubActivity extends AppCompatActivity implements GithubView {
     GithubApiClient githubApiClient = githubService.create(GithubApiClient.class);
 
     GithubPresenter presenter = new GithubPresenter(githubApiClient, this);
-    presenter.fetchRepos("ajitsing");
+    presenter.renderRepos("ajitsing");
   }
 
   @Override

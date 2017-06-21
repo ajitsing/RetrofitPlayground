@@ -20,7 +20,7 @@ public class GithubPresenter {
     this.view = view;
   }
 
-  public void fetchRepos(String user) {
+  public void renderRepos(String user) {
     Observable<List<Repository>> repos = githubApiClient.repos(user);
     repos.observeOn(AndroidSchedulers.mainThread())
         .subscribeOn(Schedulers.newThread())
