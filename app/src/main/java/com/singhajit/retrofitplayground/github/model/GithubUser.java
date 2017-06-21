@@ -1,4 +1,4 @@
-package com.singhajit.retrofitplayground.github;
+package com.singhajit.retrofitplayground.github.model;
 
 import java.util.List;
 

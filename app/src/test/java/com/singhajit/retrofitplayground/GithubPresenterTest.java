@@ -1,7 +1,9 @@
 package com.singhajit.retrofitplayground;
 
-import com.singhajit.retrofitplayground.github.GithubApiClient;
-import com.singhajit.retrofitplayground.github.Repository;
+import com.singhajit.retrofitplayground.github.GithubPresenter;
+import com.singhajit.retrofitplayground.github.GithubView;
+import com.singhajit.retrofitplayground.github.network.GithubApiClient;
+import com.singhajit.retrofitplayground.github.model.Repository;
 
 import org.junit.Before;
 import org.junit.Test;

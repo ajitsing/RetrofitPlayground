@@ -1,4 +1,4 @@
-package com.singhajit.retrofitplayground.github;
+package com.singhajit.retrofitplayground.github.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

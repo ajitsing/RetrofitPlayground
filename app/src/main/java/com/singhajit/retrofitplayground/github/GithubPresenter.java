@@ -1,11 +1,11 @@
-package com.singhajit.retrofitplayground;
+package com.singhajit.retrofitplayground.github;
 
 import android.support.annotation.NonNull;
 
-import com.singhajit.retrofitplayground.github.GithubApiClient;
-import com.singhajit.retrofitplayground.github.GithubUser;
-import com.singhajit.retrofitplayground.github.Organization;
-import com.singhajit.retrofitplayground.github.Repository;
+import com.singhajit.retrofitplayground.github.network.GithubApiClient;
+import com.singhajit.retrofitplayground.github.model.GithubUser;
+import com.singhajit.retrofitplayground.github.model.Organization;
+import com.singhajit.retrofitplayground.github.model.Repository;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.singhajit.retrofitplayground.github;
+package com.singhajit.retrofitplayground.github.network;
 
 import android.util.Log;
 

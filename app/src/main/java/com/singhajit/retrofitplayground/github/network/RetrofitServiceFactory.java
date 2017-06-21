@@ -1,9 +1,8 @@
-package com.singhajit.retrofitplayground;
+package com.singhajit.retrofitplayground.github.network;
 
 import android.content.Context;
 
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
-import com.singhajit.retrofitplayground.github.CustomInterceptor;
 
 import java.io.File;
 

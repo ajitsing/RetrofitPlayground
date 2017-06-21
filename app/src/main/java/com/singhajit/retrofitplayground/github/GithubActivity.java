@@ -1,4 +1,4 @@
-package com.singhajit.retrofitplayground;
+package com.singhajit.retrofitplayground.github;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -6,9 +6,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
-import com.singhajit.retrofitplayground.github.GithubApiClient;
-import com.singhajit.retrofitplayground.github.GithubUser;
-import com.singhajit.retrofitplayground.github.Repository;
+import com.singhajit.retrofitplayground.R;
+import com.singhajit.retrofitplayground.github.network.GithubApiClient;
+import com.singhajit.retrofitplayground.github.model.GithubUser;
+import com.singhajit.retrofitplayground.github.model.Repository;
+import com.singhajit.retrofitplayground.github.network.RetrofitServiceFactory;
 
 import java.util.List;
 
