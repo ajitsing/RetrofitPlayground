@@ -21,6 +21,7 @@ public class RetrofitServiceFactory {
     OkHttpClient client = new OkHttpClient.Builder()
         .cache(cache)
         .addInterceptor(interceptor)
+        .addInterceptor(new OfflineModeInterceptor(context))
         .addNetworkInterceptor(new CustomInterceptor())
         .build();
 

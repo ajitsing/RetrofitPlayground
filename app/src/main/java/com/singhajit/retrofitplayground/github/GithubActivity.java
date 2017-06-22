@@ -45,7 +45,7 @@ public class GithubActivity extends AppCompatActivity implements GithubView {
   @Override
   public void renderUser(GithubUser githubUser) {
     resetViews();
-    
+
     TextView user = (TextView) findViewById(R.id.user);
     user.setText("User: " + githubUser.getRepositories().get(0).getOwner().getLogin());
 
