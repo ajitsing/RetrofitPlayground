@@ -4,12 +4,13 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.singhajit.retrofitplayground.R;
-import com.singhajit.retrofitplayground.github.network.GithubApiClient;
 import com.singhajit.retrofitplayground.github.model.GithubUser;
 import com.singhajit.retrofitplayground.github.model.Repository;
+import com.singhajit.retrofitplayground.github.network.GithubApiClient;
 import com.singhajit.retrofitplayground.github.network.RetrofitServiceFactory;
 
 import java.util.List;
@@ -43,7 +44,8 @@ public class GithubActivity extends AppCompatActivity implements GithubView {
 
   @Override
   public void renderUser(GithubUser githubUser) {
-    resetReposView();
+    resetViews();
+    
     TextView user = (TextView) findViewById(R.id.user);
     user.setText("User: " + githubUser.getRepositories().get(0).getOwner().getLogin());
 
@@ -52,18 +54,37 @@ public class GithubActivity extends AppCompatActivity implements GithubView {
 
     userRepos.setText("Repos: " + githubUser.getRepositories().size());
     userOrgs.setText("Orgs: " + githubUser.getOrganizations().size());
+
+    showUserInfo();
   }
 
   public void batchRequests(View view) {
-    presenter.renderRepos("ajitsing", "JakeWharton");
+    resetViews();
+    presenter.renderRepos("JakeWharton", "ajitsing");
   }
 
   public void multiDiffRequests(View view) {
     presenter.render("ajitsing");
   }
 
-  private void resetReposView() {
+  public void singleRequest(View view) {
+    resetViews();
+    presenter.renderRepos("ajitsing");
+  }
+
+  private void resetViews() {
     TextView reposTextView = (TextView) findViewById(R.id.repos);
     reposTextView.setText("");
+    hideUserInfo();
+  }
+
+  private void hideUserInfo() {
+    LinearLayout userInfo = (LinearLayout) findViewById(R.id.user_info);
+    userInfo.setVisibility(View.GONE);
+  }
+
+  private void showUserInfo() {
+    LinearLayout userInfo = (LinearLayout) findViewById(R.id.user_info);
+    userInfo.setVisibility(View.VISIBLE);
   }
 }
