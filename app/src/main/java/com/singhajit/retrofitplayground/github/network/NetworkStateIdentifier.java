@@ -16,10 +16,6 @@ import static android.net.ConnectivityManager.TYPE_WIFI;
 import static java.util.Arrays.asList;
 
 public class NetworkStateIdentifier {
-  private NetworkStateIdentifier() {
-    //Nothing
-  }
-
   public static boolean isConnectedToInternet(Context context) {
     try {
       if (context != null) {
@@ -68,5 +64,4 @@ public class NetworkStateIdentifier {
     List<Integer> networks = asList(TYPE_MOBILE, TYPE_WIFI);
     return networks.contains(networkInfo.getType());
   }
-
 }

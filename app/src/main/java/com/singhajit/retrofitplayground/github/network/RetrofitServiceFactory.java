@@ -22,7 +22,6 @@ public class RetrofitServiceFactory {
         .cache(cache)
         .addInterceptor(interceptor)
         .addInterceptor(new OfflineModeInterceptor(context))
-        .addNetworkInterceptor(new CustomInterceptor())
         .build();
 
     return new Retrofit.Builder()
